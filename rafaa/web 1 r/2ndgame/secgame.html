@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avoid the Falling Blocks</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #2d2d2d;
+      color: white;
+    }
+
+    .game-container {
+      position: relative;
+      width: 400px;
+      height: 600px;
+      background-color: #444;
+      border: 2px solid white;
+      overflow: hidden;
+    }
+
+    .player {
+      position: absolute;
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: lightblue;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .block {
+      position: absolute;
+      top: -40px;
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      border-radius: 5px;
+    }
+
+    #score-display {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container" id="game-container">
+    <div class="player" id="player"></div>
+  </div>
+  <h1 id="score-display">Score: 0</h1>
+  <script>
+    const player = document.getElementById("player");
+    const gameContainer = document.getElementById("game-container");
+    const scoreDisplay = document.getElementById("score-display");
+
+    let playerX = 180;
+    let score = 0;
+    let blocks = [];
+    let gameInterval;
+
+    // Move the player
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" && playerX > 0) {
+        playerX -= 20;
+      } else if (e.key === "ArrowRight" && playerX < 360) {
+        playerX += 20;
+      }
+      player.style.left = `${playerX}px`;
+    });
+
+    // Create and drop blocks
+    function createBlock() {
+      const block = document.createElement("div");
+      block.classList.add("block");
+      block.style.left = `${Math.random() * 360}px`;
+      gameContainer.appendChild(block);
+      blocks.push({ element: block, y: -40 });
+    }
+
+    function updateBlocks() {
+      blocks.forEach((block, index) => {
+        block.y += 5;
+        block.element.style.top = `${block.y}px`;
+
+        // Check for collision
+        if (
+          block.y >= 540 &&
+          block.y <= 580 &&
+          block.element.offsetLeft < playerX + 40 &&
+          block.element.offsetLeft + 40 > playerX
+        ) {
+          clearInterval(gameInterval);
+          alert(`Game Over! Final Score: ${score}`);
+          resetGame();
+        }
+
+        // Remove off-screen blocks
+        if (block.y > 600) {
+          block.element.remove();
+          blocks.splice(index, 1);
+          score++;
+          scoreDisplay.textContent = `Score: ${score}`;
+        }
+      });
+    }
+
+    function gameLoop() {
+      updateBlocks();
+    }
+
+    function startGame() {
+      createBlock();
+      gameInterval = setInterval(() => {
+        createBlock();
+        gameLoop();
+      }, 200);
+    }
+
+    function resetGame() {
+      score = 0;
+      scoreDisplay.textContent = `Score: ${score}`;
+      blocks.forEach(block => block.element.remove());
+      blocks = [];
+      playerX = 180;
+      player.style.left = `${playerX}px`;
+      startGame();
+    }
+
+    // Start the game
+    startGame();
+  </script>
+</body>
+</html>
