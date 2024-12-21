@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <input type="text" id="todo-input" placeholder="Add a new task...">
+    <button id="add-btn">Add</button>
+    <ul id="todo-list"></ul>
+    <script src="app.js"></script>
+</body>
+</html>
+*/
+
+// JavaScript Code (Save this in app.js)
+document.addEventListener("DOMContentLoaded", () => {
+    const todoInput = document.getElementById("todo-input");
+    const addBtn = document.getElementById("add-btn");
+    const todoList = document.getElementById("todo-list");
+
+    // Function to add a new to-do item
+    const addTodo = () => {
+        const task = todoInput.value.trim();
+        if (task === "") return;
+
+        const li = document.createElement("li");
+        li.className = "todo-item";
+
+        const span = document.createElement("span");
+        span.textContent = task;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", () => li.remove());
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        todoList.appendChild(li);
+
+        span.addEventListener("click", () => {
+            span.classList.toggle("done");
+        });
+
+        todoInput.value = ""; // Clear the input
+    };
+
+    // Event Listener for the Add button
+    addBtn.addEventListener("click", addTodo);
+
+    // Allow pressing 'Enter' to add a to-do
+    todoInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") addTodo();
+    });
+});
