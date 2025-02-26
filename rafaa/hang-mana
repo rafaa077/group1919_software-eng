@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman Game</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h1>Hangman Game</h1>
+    <p>Guess the secret number between 1 and 100:</p>
+    <div id="word_display"></div>
+    <p>Enter a letter:</p>
+    <input id="letter_input" type="text" maxlength="1">
+    <button id="guess_button">Submit Guess</button>
+    <p id="result"></p>
+
+    <script type="text/python">
+        from browser import document, window
+
+        # Function to generate a random number between 1 and 100
+        def generate_number():
+            return window.Math.floor(window.Math.random() * 100) + 1
+
+        # Initialize the game
+        secret_number = generate_number()
+        word_length = len(str(secret_number))
+        guessed_letters = set()
+
+        # Function to display the word with underscores for unknown letters
+        def display_word():
+            displayed_word = ""
+            for char in str(secret_number):
+                if char in guessed_letters:
+                    displayed_word += char
+                else:
+                    displayed_word += "_"
+            document["word_display"].text = displayed_word
+
+        # Function to handle the guess submission
+        def check_guess(ev):
+            global guessed_letters
+            letter = document["letter_input"].value.lower()
+            if len(letter) != 1 or not letter.isalpha():
+                document["result"].text = "Please enter a single letter."
+                return
+            if letter in guessed_letters:
+                document["result"].text = f"You've already guessed '{letter}'."
+                return
+            guessed_letters.add(letter)
+            display_word()
+            if str(secret_number) == document["word_display"].text:
+                document["result"].text = f"Congratulations! You guessed the number {secret_number}."
+            else:
+                document["result"].text = f"The number does not contain the letter '{letter}'."
+
+        display_word()
+
+        # Bind the check_guess function to the button click event
+        document["guess_button"].bind("click", check_guess)
+    </script>
+</body>
+</html>
+
+guessing game 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.9.5/brython.min.js"></script>
+</head>
+<body onload="brython()">
+    <h1>Guessing Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input id="guess_input" type="text">
+    <button id="guess_button">Submit Guess</button>
+    <p id="result"></p>
+
+    <script type="text/python">
+        from browser import document, window
+
+        # Function to generate a random number between 1 and 100
+        def generate_number():
+            return window.Math.floor(window.Math.random() * 100) + 1
+
+        # Initialize the game
+        secret_number = generate_number()
+        attempts = 0
+
+        # Function to handle the guess submission
+        def check_guess(ev):
+            global secret_number, attempts
+            guess = document["guess_input"].value
+            try:
+                guess = int(guess)
+                attempts += 1
+                if guess == secret_number:
+                    document["result"].text = f"Congratulations! You guessed the number {secret_number} in {attempts} attempts."
+                elif guess < secret_number:
+                    document["result"].text = "Too low! Try again."
+                else:
+                    document["result"].text = "Too high! Try again."
+            except ValueError:
+                document["result"].text = "Please enter a valid number between 1 and 100."
+
+        # Bind the check_guess function to the button click event
+        document["guess_button"].bind("click", check_guess)
+    </script>
+</body>
+</html>

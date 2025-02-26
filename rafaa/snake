@@ -1,0 +1,96 @@
+import os
+import random
+import time
+
+# Define the dimensions of the game board
+WIDTH = 20
+HEIGHT = 10
+
+# Define the characters for the snake, food, and empty space
+SNAKE_CHAR = '#'
+FOOD_CHAR = '@'
+EMPTY_CHAR = ' '
+
+# Define the directions the snake can move
+UP = 'up'
+DOWN = 'down'
+LEFT = 'left'
+RIGHT = 'right'
+
+# Function to initialize the game board
+def initialize_board():
+    board = [[EMPTY_CHAR] * WIDTH for _ in range(HEIGHT)]
+    return board
+
+# Function to display the game board
+def display_board(board):
+    os.system('cls' if os.name == 'nt' else 'clear')
+    for row in board:
+        print(' '.join(row))
+
+# Function to generate a random position for the food
+def generate_food(board):
+    while True:
+        x = random.randint(0, WIDTH - 1)
+        y = random.randint(0, HEIGHT - 1)
+        if board[y][x] == EMPTY_CHAR:
+            board[y][x] = FOOD_CHAR
+            break
+
+# Function to move the snake
+def move_snake(direction, snake):
+    head = snake[0]
+    if direction == UP:
+        new_head = (head[0], head[1] - 1)
+    elif direction == DOWN:
+        new_head = (head[0], head[1] + 1)
+    elif direction == LEFT:
+        new_head = (head[0] - 1, head[1])
+    elif direction == RIGHT:
+        new_head = (head[0] + 1, head[1])
+    snake.insert(0, new_head)
+    return snake[:-1]
+
+# Function to check if the snake has collided with the walls or itself
+def check_collision(snake):
+    head = snake[0]
+    if head[0] < 0 or head[0] >= WIDTH or head[1] < 0 or head[1] >= HEIGHT:
+        return True
+    if len(snake) != len(set(snake)):
+        return True
+    return False
+
+# Function to play the game
+def play_game():
+    board = initialize_board()
+    snake = [(WIDTH // 2, HEIGHT // 2)]
+    direction = RIGHT
+    generate_food(board)
+
+    while True:
+        display_board(board)
+
+        # Move the snake
+        snake = move_snake(direction, snake)
+
+        # Check for collision
+        if check_collision(snake):
+            print("Game Over!")
+            break
+
+        # Update the board with the snake and food
+        board = initialize_board()
+        for segment in snake:
+            x, y = segment
+            board[y][x] = SNAKE_CHAR
+        generate_food(board)
+
+        # Get user input for the next direction
+        new_direction = input("Enter direction (up/down/left/right): ").lower()
+        if new_direction in [UP, DOWN, LEFT, RIGHT]:
+            direction = new_direction
+
+        time.sleep(0.1)
+
+if __name__ == "__main__":
+    play_game()

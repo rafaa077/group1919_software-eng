@@ -1,0 +1,24 @@
+// Toggle contact form visibility
+document.getElementById('contactButton').addEventListener('click', function() {
+    const form = document.getElementById('contactForm');
+    if (form.style.display === 'none' || form.style.display === '') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+});
+
+// JavaScript to add random movement to blood spots
+const bloodSpots = document.querySelectorAll('.blood-spot');
+
+function randomizeBloodSpots() {
+    bloodSpots.forEach(spot => {
+        const randomX = Math.floor(Math.random() * window.innerWidth) - 100; // Random horizontal position
+        const randomY = Math.floor(Math.random() * window.innerHeight) - 100; // Random vertical position
+        spot.style.left = `${randomX}px`; // Set the left position
+        spot.style.top = `${randomY}px`; // Set the top position
+    });
+}
+
+// Randomize blood spots every 5 seconds (longer interval)
+setInterval(randomizeBloodSpots, 5000);

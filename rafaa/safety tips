@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSafety Tips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .tip {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .tip h3 {
+            color: #333;
+        }
+        .tip p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>eSafety Tips</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tips.html">Safety Tips</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <div class="tip">
+            <h3>1. Protect Your Personal Information</h3>
+            <p>Never share personal information such as your full name, address, phone number, or school name with strangers online.</p>
+        </div>
+        <div class="tip">
+            <h3>2. Use Strong and Unique Passwords</h3>
+            <p>Choose strong passwords for your accounts and avoid using the same password for multiple accounts. Consider using a password manager to keep track of your passwords.</p>
+        </div>
+        <div class="tip">
+            <h3>3. Be Cautious When Interacting with Others</h3>
+            <p>Be wary of people you meet online, as not everyone may have good intentions. Avoid meeting up with strangers in person and report any suspicious behavior to a trusted adult.</p>
+        </div>
+        <div class="tip">
+            <h3>4. Set Privacy Settings</h3>
+            <p>Adjust privacy settings on social media and gaming platforms to control who can see your profile and interact with you online.</p>
+        </div>
+        <div class="tip">
+            <h3>5. Think Before You Click</h3>
+            <p>Avoid clicking on suspicious links or downloading files from unknown sources, as they may contain malware or phishing attempts.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 eSafety Awareness for Students. All rights reserved.</p>
+    </footer>
+</body>
+</html>

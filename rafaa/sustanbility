@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sustainable transportation system</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to our sustainable transportation system</h1>
+        <nav>
+            <ul>
+                <li><a href="#problem">what is the problem and why is it essential? </a></li>
+                <li><a href="#solution">what is our solution?</a></li>
+                <li><a href="#important">why is it important to solve it?</a></li>
+                <li><a href="#who/whataffect">who and what does it affect? </a></li>
+                 <li><a href="#encouragingquots">encouraging quots about sustanabilty transportaion system </a></li>
+                <li><a href="#shop">our shop</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="problem">
+            <h2>what is the problem and why is it essential?</h2>
+
+            <p>Tackling this challenge is essential for not only protecting and preserving the environment but also for improving public health outcomes. It plays a key role in ensuring that everyone has equitable access to mobility, regardless of their background or location. Moreover, finding a solution will help create a future that is both sustainable and efficient, benefiting individuals, communities, and society as a whole. By addressing this issue, we can pave the way for a more inclusive, healthier, and environmentally conscious world for generations to come.</p>
+        </section>
+
+        <section id="solution">
+            <h2>what is our solution?</h2>
+            
+                <p> The UAE's *Autonomous Transportation Strategy* aims to transform transportation by using self-driving vehicles like cars, buses, and drones. The goal is to improve safety, reduce traffic, and lower emissions. It also focuses on making transportation more accessible and efficient for everyone. Ultimately, the strategy seeks to position the UAE as a leader in innovative, eco-friendly transportation technology.</p>
+                
+        </section>
+
+        <section id="important">
+            <h2>why is it important to solve it?</h2>
+            <p>This issue stems from an excessive dependence on fossil fuel-powered transportation, rapid urban expansion, poorly planned infrastructure, and the lack of focus on sustainable and inclusive mobility options. Additionally, outdated public transport systems, insufficient investment in green technologies, and the prioritization of car-centric urban planning have contributed to the problem. The absence of integrated, efficient transport networks that cater to diverse needs, along with a failure to address environmental concerns, further exacerbates the challenges of achieving accessible and eco-friendly transportation solutions for all.</p>
+            
+        </section>
+        <section id="who/whataffect">
+            <h2>who and what does it affect?</h2>
+
+         <p>It affects everyone, especially vulnerable populations, by damaging the environment, contributing to climate change and pollution, and threatening public health. These issues increase the risk of diseases, particularly for those with fewer resources. It also worsens social inequality, making it harder for disadvantaged groups to access affordable transportation. Furthermore, economic stability is at risk as rising costs and job losses deepen existing disparities. Finding solutions is crucial to protect both people and the planet. </p>
+         
+        </section>
+        <section id="encouragingquots">
+            <h2> encouraging quotes for sustainability transportation systems</h2>
+            <div class="blood-spots-container">
+                
+                <div class="blood-spot" id="blood-spot1">
+                    <div class="blood-text">The future of travel in the UAE is green, smart, and sustainable</div>
+                </div>
+                <div class="blood-spot" id="blood-spot2">
+                    <div class="blood-text">Together, let's drive towards a cleaner, connected UAE.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot3">
+                    <div class="blood-text">Sustainability on the road leads to a brighter tomorrow.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot4">
+                    <div class="blood-text">Every sustainable step brings us closer to a greener UAE.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot5">
+                    <div class="blood-text">Eco-friendly transportation is the future of the UAE.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot6">
+                    <div class="blood-text">The UAE is shaping a smarter, cleaner way to move.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot7">
+                    <div class="blood-text">Let’s ride towards a sustainable, connected tomorrow.</div>
+                </div>
+                <div class="blood-spot" id="blood-spot8">
+                    <div class="blood-text">In the UAE, every journey can be part of the solution.</div>
+                </div>
+            </div>
+        </section>
+         
+
+        <section id="shop">
+            <h2>our shop</h2>
+        <p>our shop is a website that sells sustainable transportation system we belive everyone should give it a shot and visit our website</p>
+            <a href="https://358dd8de-f2e7-416c-994f-b8adc2161da9-00-1bbldcyez09g2.janeway.replit.dev/" target="_blank">Sustainable Transport Solutions</a>
+             </section>
+
+        <section id="contact">
+
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need more information, feel free to reach out.</p>
+
+            <button id="contactButton">Click for Info</button>
+            <div id="contactForm" style="display:none;">
+                <form>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2025 TAPS sustainability transportation website for Students. All rights reserved to group 5.</p>
+    </footer>
+
+   
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
